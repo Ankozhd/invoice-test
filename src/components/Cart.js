@@ -44,8 +44,8 @@ function Cart() {
   }, [products]);
 
   const onCheckout = (values) => {
-    const { users } = values;
-    setProducts(users);
+    const { productsFormList } = values;
+    setProducts(productsFormList);
   };
 
   const generateFromTestData = () => {
@@ -56,7 +56,7 @@ function Cart() {
     <Col>
       <Row justify="center" style={{ margin: '40px 0 10px 0' }}>
         <Form name="dynamic_form_nest_item" onFinish={onCheckout} autoComplete="off">
-          <Form.List name="users">
+          <Form.List name="productsFormList">
             {(fields, { add, remove }) => (
               <>
                 {fields.map(({ key, name, ...restField }) => (

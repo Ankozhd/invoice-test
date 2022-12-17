@@ -35,6 +35,7 @@ const createInvoices = (products) => {
         total: `${(discountedPrice).toFixed(2)} + ${(discountedPrice * vat).toFixed(2)} = ${taxedPrice.toFixed(2)}`,
       };
 
+      // create invoice
       calculatedInvoices.push({
         items: [item], subtotal, totalVat, total,
       });
@@ -91,6 +92,7 @@ const createInvoices = (products) => {
         total: `${discountedPrice.toFixed(2)} + ${(discountedPrice * vat).toFixed(2)} = ${taxedPrice.toFixed(2)}`,
       };
 
+      // create invoice
       calculatedInvoices.push({
         items: [item],
         subtotal: discountedPrice,
@@ -124,10 +126,12 @@ const createInvoices = (products) => {
     total += taxedPrice;
   }
 
-  // create invoice
-  calculatedInvoices.push({
-    items, subtotal, totalVat, total,
-  });
+  // create invoice if there are any items to put
+  if (items.length > 0) {
+    calculatedInvoices.push({
+      items, subtotal, totalVat, total,
+    });
+  }
 
   const nextProducts = [...currentProducts, ...savedForNextInvoice];
   calculatedInvoices = calculatedInvoices.concat(createInvoices(nextProducts));
