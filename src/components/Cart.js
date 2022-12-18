@@ -73,7 +73,7 @@ function Cart() {
                           }
                           return Promise.resolve();
                         },
-                      }]}
+                      }, { required: true, message: 'required' }]}
                     >
                       <Input placeholder="Description" />
                     </Form.Item>
@@ -81,13 +81,15 @@ function Cart() {
                       {...restField}
                       name={[name, 'quantity']}
                       label="QTY"
+                      rules={[{ required: true, message: 'required' }]}
                     >
-                      <InputNumber min={1} max={9999} />
+                      <InputNumber min={1} max={9999} placeholder={1} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'price']}
                       label="Price"
+                      rules={[{ required: true, message: 'required' }]}
                     >
                       <InputNumber placeholder="100" min={1} max={1000000} />
                     </Form.Item>
@@ -105,7 +107,7 @@ function Cart() {
                           }
                           return Promise.resolve();
                         },
-                      })]}
+                      }), { required: true, message: 'required' }]}
                     >
                       <InputNumber placeholder="0.1" min={0} />
                     </Form.Item>
@@ -113,6 +115,7 @@ function Cart() {
                       {...restField}
                       name={[name, 'vat']}
                       label="VAT"
+                      rules={[{ required: true, message: 'required' }]}
                     >
                       <InputNumber placeholder="0.22" min={0.01} max={0.99} step={0.01} />
                     </Form.Item>
