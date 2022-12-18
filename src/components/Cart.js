@@ -59,12 +59,21 @@ function Cart() {
           <Form.List name="productsFormList">
             {(fields, { add, remove }) => (
               <>
-                {fields.map(({ key, name, ...restField }) => (
+                {fields.map(({ key, name, ...restField }, index) => (
                   <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
                     <Form.Item
                       {...restField}
                       name={[name, 'desc']}
                       label="Description"
+                      rules={[{
+                        message: 'Description should be more 1 and less then 20',
+                        validator(rule, value) {
+                          if (value.length > 20 || value.length < 1) {
+                            return Promise.reject(new Error());
+                          }
+                          return Promise.resolve();
+                        },
+                      }]}
                     >
                       <Input placeholder="Description" />
                     </Form.Item>
@@ -73,28 +82,39 @@ function Cart() {
                       name={[name, 'quantity']}
                       label="QTY"
                     >
-                      <InputNumber placeholder="0" />
+                      <InputNumber min={1} max={9999} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'price']}
                       label="Price"
                     >
-                      <InputNumber placeholder="100" />
+                      <InputNumber placeholder="100" min={1} max={1000000} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'discount']}
                       label="Discount"
+                      rules={[(formInstance) => ({
+                        message: 'value must not be bigger than price - 0,01',
+                        validator(rule, value) {
+                          const upperValue = formInstance.getFieldsValue()
+                            .productsFormList[index]?.price;
+                          if (value > upperValue - 0.01) {
+                            return Promise.reject(new Error());
+                          }
+                          return Promise.resolve();
+                        },
+                      })]}
                     >
-                      <InputNumber placeholder="0.1" />
+                      <InputNumber placeholder="0.1" min={0} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'vat']}
                       label="VAT"
                     >
-                      <InputNumber placeholder="0.22" />
+                      <InputNumber placeholder="0.22" min={0.01} max={0.99} step={0.01} />
                     </Form.Item>
                     <MinusCircleOutlined onClick={() => remove(name)} />
                   </Space>
@@ -107,11 +127,16 @@ function Cart() {
               </>
             )}
           </Form.List>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Checkout
-            </Button>
-
+          <Form.Item shouldUpdate>
+            {(formInstance) => {
+              const fieldsError = formInstance.getFieldsError();
+              const disabled = fieldsError.map((value) => value.errors).flat(1).length > 0;
+              return (
+                <Button type="primary" htmlType="submit" disabled={disabled}>
+                  Checkout
+                </Button>
+              );
+            }}
           </Form.Item>
         </Form>
       </Row>
