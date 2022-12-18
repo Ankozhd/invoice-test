@@ -49,6 +49,7 @@ function Cart() {
   }, [products]);
 
   const onCheckout = (values) => {
+    setInvoices([]);
     const { productsFormList } = values;
     setProducts(productsFormList);
   };

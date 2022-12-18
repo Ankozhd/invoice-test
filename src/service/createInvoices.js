@@ -20,7 +20,6 @@ const createInvoices = (products) => {
       desc, price, vat, quantity: allQuantity, discount,
     } = product;
 
-    // debugger;
     let quantity = allQuantity;
     let discountedPrice = (price - discount) * quantity;
     let taxedPrice = discountedPrice + discountedPrice * vat;
@@ -96,13 +95,21 @@ const createInvoices = (products) => {
         total: `${discountedPrice.toFixed(2)} + ${(discountedPrice * vat).toFixed(2)} = ${taxedPrice.toFixed(2)}`,
       };
 
-      // create invoice
-      calculatedInvoices.push({
-        items: [item],
-        subtotal: discountedPrice,
-        totalVat: discountedPrice * vat,
-        total: taxedPrice,
-      });
+      // put in current invoice if it fits
+      if (total + taxedPrice <= 500) {
+        items.push(item);
+        subtotal += discountedPrice;
+        totalVat += discountedPrice * vat;
+        total += taxedPrice;
+      } else {
+        // create invoice
+        calculatedInvoices.push({
+          items: [item],
+          subtotal: discountedPrice,
+          totalVat: discountedPrice * vat,
+          total: taxedPrice,
+        });
+      }
       // eslint-disable-next-line no-continue
       continue;
     }
