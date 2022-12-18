@@ -71,9 +71,9 @@ export const expectedInvoices = [
     items: [{
       desc: 'TV', quantity: 1, price: 760, discount: 0, vat: '22%', total: '760.00 + 167.20 = 927.20',
     }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
+    subtotal: 760,
+    totalVat: 0.22,
+    total: 927.2,
   }, {
     items: [{
       desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
@@ -244,4 +244,104 @@ export const expectedInvoices = [
     subtotal: 2.4000000000000004,
     totalVat: 0.43200000000000005,
     total: 2.8320000000000003,
+  }];
+export const product500 = [
+  {
+    desc: 'something', price: 500, vat: 0.08, quantity: 1, discount: 0,
+  },
+];
+export const expectedInvoice500 = [{
+  items: [{
+    desc: 'something', quantity: 1, price: 500, discount: 0, vat: '8%', total: '500.00 + 40.00 = 540.00',
+  }],
+  subtotal: 500,
+  totalVat: 0.08,
+  total: 540,
+}];
+export const products256 = [
+  {
+    desc: 'something1', price: 256, vat: 0.08, quantity: 1, discount: 0,
+  },
+  {
+    desc: 'something2', price: 256, vat: 0.08, quantity: 1, discount: 0,
+  },
+];
+export const expectedInvoices256 = [
+  {
+    items: [{
+      desc: 'something2', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
+    }],
+    subtotal: 256,
+    totalVat: 20.48,
+    total: 276.48,
+  }, {
+    items: [{
+      desc: 'something1', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
+    }],
+    subtotal: 256,
+    totalVat: 20.48,
+    total: 276.48,
+  }];
+export const products389 = [
+  {
+    desc: 'something', price: 1, vat: 0.08, quantity: 389, discount: 0,
+  },
+];
+export const expectedInvoices389 = [
+  {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 50, price: 1, discount: 0, vat: '8%', total: '50.00 + 4.00 = 54.00',
+    }],
+    subtotal: 50,
+    totalVat: 4,
+    total: 54,
+  }, {
+    items: [{
+      desc: 'something', quantity: 39, price: 1, discount: 0, vat: '8%', total: '39.00 + 3.12 = 42.12',
+    }],
+    subtotal: 39,
+    totalVat: 3.12,
+    total: 42.12,
   }];
