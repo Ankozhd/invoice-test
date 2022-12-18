@@ -10,22 +10,27 @@ const columns = [
   {
     title: 'Description',
     dataIndex: 'desc',
+    width: 200,
   },
   {
     title: 'QTY',
     dataIndex: 'quantity',
+    width: 200,
   },
   {
     title: 'Price',
     dataIndex: 'price',
+    width: 200,
   },
   {
     title: 'Discount',
     dataIndex: 'discount',
+    width: 200,
   },
   {
     title: 'VAT',
     dataIndex: 'vat',
+    width: 200,
   },
   {
     title: 'Total',
