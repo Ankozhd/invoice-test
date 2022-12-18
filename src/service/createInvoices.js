@@ -20,12 +20,13 @@ const createInvoices = (products) => {
       desc, price, vat, quantity: allQuantity, discount,
     } = product;
 
+    // debugger;
     let quantity = allQuantity;
     let discountedPrice = (price - discount) * quantity;
     let taxedPrice = discountedPrice + discountedPrice * vat;
 
     // create separate invoice for items > INVOICE_TOTAL_LIMIT
-    if (price > INVOICE_TOTAL_LIMIT) {
+    if (price >= INVOICE_TOTAL_LIMIT) {
       const item = {
         desc,
         quantity,
@@ -37,7 +38,10 @@ const createInvoices = (products) => {
 
       // create invoice
       calculatedInvoices.push({
-        items: [item], subtotal, totalVat, total,
+        items: [item],
+        subtotal: discountedPrice,
+        totalVat: vat,
+        total: discountedPrice + discountedPrice * vat,
       });
       // eslint-disable-next-line no-continue
       continue;
@@ -72,7 +76,7 @@ const createInvoices = (products) => {
     // if taxed price exceed limit for invoice
     if (taxedPrice >= INVOICE_TOTAL_LIMIT) {
       // find quantity of products that have taxedPrice less than INVOICE_TOTAL_LIMIT
-      quantity = Math.round(INVOICE_TOTAL_LIMIT
+      quantity = Math.floor(INVOICE_TOTAL_LIMIT
                 / ((price - discount) + ((price - discount) * vat)));
 
       // don't forget skipped products
