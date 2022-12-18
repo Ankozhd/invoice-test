@@ -76,13 +76,6 @@ export const expectedInvoices = [
     total: 927.2,
   }, {
     items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
-  }, {
-    items: [{
       desc: 'water', quantity: 50, price: 0.25, discount: 0, vat: '8%', total: '12.50 + 1.00 = 13.50',
     }, {
       desc: 'chips', quantity: 38, price: 2.4, discount: 0, vat: '8%', total: '91.20 + 7.30 = 98.50',
@@ -108,13 +101,6 @@ export const expectedInvoices = [
     total: 498.8366,
   }, {
     items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
-  }, {
-    items: [{
       desc: 'water', quantity: 50, price: 0.25, discount: 0, vat: '8%', total: '12.50 + 1.00 = 13.50',
     }, {
       desc: 'coca cola', quantity: 27, price: 0.5, discount: 0.1, vat: '18%', total: '10.80 + 1.94 = 12.74',
@@ -132,13 +118,6 @@ export const expectedInvoices = [
     total: 498.566,
   }, {
     items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
-  }, {
-    items: [{
       desc: 'water', quantity: 50, price: 0.25, discount: 0, vat: '8%', total: '12.50 + 1.00 = 13.50',
     }, {
       desc: 'fish meat', quantity: 49, price: 8.3, discount: 0, vat: '18%', total: '406.70 + 73.21 = 479.91',
@@ -148,13 +127,6 @@ export const expectedInvoices = [
     subtotal: 421.70000000000005,
     totalVat: 74.656,
     total: 496.35600000000005,
-  }, {
-    items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
   }, {
     items: [{
       desc: 'water', quantity: 50, price: 0.25, discount: 0, vat: '8%', total: '12.50 + 1.00 = 13.50',
@@ -174,20 +146,6 @@ export const expectedInvoices = [
     total: 361.5444,
   }, {
     items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
-  }, {
-    items: [{
-      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
-    }],
-    subtotal: 408,
-    totalVat: 89.76,
-    total: 497.76,
-  }, {
-    items: [{
       desc: 'water', quantity: 40, price: 0.25, discount: 0, vat: '8%', total: '10.00 + 0.80 = 10.80',
     }, {
       desc: 'cigarettes', quantity: 50, price: 5.46, discount: 0, vat: '22%', total: '273.00 + 60.06 = 333.06',
@@ -201,35 +159,33 @@ export const expectedInvoices = [
     total: 356.25,
   }, {
     items: [{
-      desc: 'lotions', quantity: 1, price: 12, discount: 0, vat: '22%', total: '12.00 + 2.64 = 14.64',
-    }, {
-      desc: 'razors', quantity: 50, price: 8.1, discount: 0, vat: '8%', total: '405.00 + 32.40 = 437.40',
-    }, {
-      desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
-    }, {
-      desc: 'eggs', quantity: 4, price: 0.16, discount: 0, vat: '18%', total: '0.64 + 0.12 = 0.76',
-    }],
-    subtotal: 420.14,
-    totalVat: 35.6052,
-    total: 455.74519999999995,
-  }, {
-    items: [{
       desc: 'cigarettes', quantity: 39, price: 5.46, discount: 0, vat: '22%', total: '212.94 + 46.85 = 259.79',
     }, {
+      desc: 'eggs', quantity: 4, price: 0.16, discount: 0, vat: '18%', total: '0.64 + 0.12 = 0.76',
+    }, {
+      desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
+    }],
+    subtotal: 216.07999999999998,
+    totalVat: 47.412000000000006,
+    total: 263.49199999999996,
+  }, {
+    items: [{
+      desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
+    }, {
+      desc: 'razors', quantity: 50, price: 8.1, discount: 0, vat: '8%', total: '405.00 + 32.40 = 437.40',
+    }],
+    subtotal: 407.5,
+    totalVat: 32.85,
+    total: 440.34999999999997,
+  }, {
+    items: [{
       desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
     }, {
       desc: 'razors', quantity: 1, price: 8.1, discount: 0, vat: '8%', total: '8.10 + 0.65 = 8.75',
     }],
-    subtotal: 223.54,
-    totalVat: 47.94480000000001,
-    total: 271.48479999999995,
-  }, {
-    items: [{
-      desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
-    }],
-    subtotal: 2.5,
-    totalVat: 0.44999999999999996,
-    total: 2.95,
+    subtotal: 10.6,
+    totalVat: 1.0979999999999999,
+    total: 11.698,
   }, {
     items: [{
       desc: 'plastic bags', quantity: 50, price: 0.05, discount: 0, vat: '18%', total: '2.50 + 0.45 = 2.95',
@@ -244,7 +200,57 @@ export const expectedInvoices = [
     subtotal: 2.4000000000000004,
     totalVat: 0.43200000000000005,
     total: 2.8320000000000003,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 34, price: 12, discount: 0, vat: '22%', total: '408.00 + 89.76 = 497.76',
+    }],
+    subtotal: 408,
+    totalVat: 89.76,
+    total: 497.76,
+  }, {
+    items: [{
+      desc: 'lotions', quantity: 1, price: 12, discount: 0, vat: '22%', total: '12.00 + 2.64 = 14.64',
+    }],
+    subtotal: 12,
+    totalVat: 2.64,
+    total: 14.64,
   }];
+
 export const product500 = [
   {
     desc: 'something', price: 500, vat: 0.08, quantity: 1, discount: 0,
@@ -258,6 +264,7 @@ export const expectedInvoice500 = [{
   totalVat: 0.08,
   total: 540,
 }];
+
 export const products256 = [
   {
     desc: 'something1', price: 256, vat: 0.08, quantity: 1, discount: 0,
@@ -269,19 +276,20 @@ export const products256 = [
 export const expectedInvoices256 = [
   {
     items: [{
-      desc: 'something2', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
+      desc: 'something1', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
     }],
     subtotal: 256,
     totalVat: 20.48,
     total: 276.48,
   }, {
     items: [{
-      desc: 'something1', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
+      desc: 'something2', quantity: 1, price: 256, discount: 0, vat: '8%', total: '256.00 + 20.48 = 276.48',
     }],
     subtotal: 256,
     totalVat: 20.48,
     total: 276.48,
   }];
+
 export const products389 = [
   {
     desc: 'something', price: 1, vat: 0.08, quantity: 389, discount: 0,
@@ -345,6 +353,7 @@ export const expectedInvoices389 = [
     totalVat: 3.12,
     total: 42.12,
   }];
+
 export const multipleProductsWithDifferentPrices = [
   {
     desc: 'something1', price: 248, vat: 0.08, quantity: 2, discount: 0,
@@ -356,9 +365,9 @@ export const multipleProductsWithDifferentPrices = [
 export const expectedInvoicesMultipleProducts = [
   {
     items: [{
-      desc: 'something2', quantity: 1, price: 1, discount: 0, vat: '8%', total: '1.00 + 0.08 = 1.08',
-    }, {
       desc: 'something1', quantity: 1, price: 248, discount: 0, vat: '8%', total: '248.00 + 19.84 = 267.84',
+    }, {
+      desc: 'something2', quantity: 1, price: 1, discount: 0, vat: '8%', total: '1.00 + 0.08 = 1.08',
     }],
     subtotal: 249,
     totalVat: 19.919999999999998,
@@ -370,4 +379,45 @@ export const expectedInvoicesMultipleProducts = [
     subtotal: 248,
     totalVat: 19.84,
     total: 267.84,
+  }];
+
+export const multipleDifferentProducts = [
+  {
+    desc: 'something1', price: 248, vat: 0.01, quantity: 2, discount: 0,
+  },
+  {
+    desc: 'something2', price: 1, vat: 0.01, quantity: 101, discount: 0,
+  },
+  {
+    desc: 'something3', price: 200, vat: 0.01, quantity: 1, discount: 0,
+  },
+];
+export const expectedInvoicesMultipleDifferentProducts = [
+  {
+    items: [{
+      desc: 'something1', quantity: 1, price: 248, discount: 0, vat: '1%', total: '248.00 + 2.48 = 250.48',
+    }, {
+      desc: 'something2', quantity: 50, price: 1, discount: 0, vat: '1%', total: '50.00 + 0.50 = 50.50',
+    }],
+    subtotal: 298,
+    totalVat: 2.98,
+    total: 300.98,
+  }, {
+    items: [{
+      desc: 'something1', quantity: 1, price: 248, discount: 0, vat: '1%', total: '248.00 + 2.48 = 250.48',
+    }, {
+      desc: 'something2', quantity: 50, price: 1, discount: 0, vat: '1%', total: '50.00 + 0.50 = 50.50',
+    }],
+    subtotal: 298,
+    totalVat: 2.98,
+    total: 300.98,
+  }, {
+    items: [{
+      desc: 'something2', quantity: 1, price: 1, discount: 0, vat: '1%', total: '1.00 + 0.01 = 1.01',
+    }, {
+      desc: 'something3', quantity: 1, price: 200, discount: 0, vat: '1%', total: '200.00 + 2.00 = 202.00',
+    }],
+    subtotal: 201,
+    totalVat: 2.01,
+    total: 203.01,
   }];

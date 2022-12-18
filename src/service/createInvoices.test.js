@@ -8,7 +8,11 @@ import {
   products256,
   expectedInvoices256,
   products389,
-  expectedInvoices389, multipleProductsWithDifferentPrices, expectedInvoicesMultipleProducts,
+  expectedInvoices389,
+  multipleProductsWithDifferentPrices,
+  expectedInvoicesMultipleProducts,
+  multipleDifferentProducts,
+  expectedInvoicesMultipleDifferentProducts,
 } from './testData';
 
 test('create invoices with data from task', () => {
@@ -34,5 +38,10 @@ test('create invoices for 389 products with price = 1', () => {
 test('create invoices for one product with price 256 ant qty = 2 and product with price 1', () => {
   const invoices = createInvoices(multipleProductsWithDifferentPrices);
   expect(invoices).toMatchObject(expectedInvoicesMultipleProducts);
+});
+
+test('create invoices for multiple different products', () => {
+  const invoices = createInvoices(multipleDifferentProducts);
+  expect(invoices).toMatchObject(expectedInvoicesMultipleDifferentProducts);
 });
 
