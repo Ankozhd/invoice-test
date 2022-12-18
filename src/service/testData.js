@@ -345,3 +345,29 @@ export const expectedInvoices389 = [
     totalVat: 3.12,
     total: 42.12,
   }];
+export const multipleProductsWithDifferentPrices = [
+  {
+    desc: 'something1', price: 248, vat: 0.08, quantity: 2, discount: 0,
+  },
+  {
+    desc: 'something2', price: 1, vat: 0.08, quantity: 1, discount: 0,
+  },
+];
+export const expectedInvoicesMultipleProducts = [
+  {
+    items: [{
+      desc: 'something2', quantity: 1, price: 1, discount: 0, vat: '8%', total: '1.00 + 0.08 = 1.08',
+    }, {
+      desc: 'something1', quantity: 1, price: 248, discount: 0, vat: '8%', total: '248.00 + 19.84 = 267.84',
+    }],
+    subtotal: 249,
+    totalVat: 19.919999999999998,
+    total: 268.91999999999996,
+  }, {
+    items: [{
+      desc: 'something1', quantity: 1, price: 248, discount: 0, vat: '8%', total: '248.00 + 19.84 = 267.84',
+    }],
+    subtotal: 248,
+    totalVat: 19.84,
+    total: 267.84,
+  }];
