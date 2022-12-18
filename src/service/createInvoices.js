@@ -15,7 +15,7 @@ const createInvoices = (products) => {
 
   // go through products until invoice is full, or we are out of products
   while (total <= INVOICE_TOTAL_LIMIT && currentProducts.length > 0) {
-    const product = currentProducts.pop();
+    const product = currentProducts.shift();
     const {
       desc, price, vat, quantity: allQuantity, discount,
     } = product;
