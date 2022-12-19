@@ -11,6 +11,7 @@ const createInvoices = (products) => {
   let subtotal = 0;
   let totalVat = 0;
 
+  // debugger;
   const savedForNextInvoice = [];
 
   // go through products until invoice is full, or we are out of products
@@ -24,7 +25,7 @@ const createInvoices = (products) => {
     let discountedPrice = (price - discount) * quantity;
     let taxedPrice = discountedPrice + discountedPrice * vat;
 
-    // create separate invoice for items > INVOICE_TOTAL_LIMIT
+    // create separate invoice for items with price > INVOICE_TOTAL_LIMIT
     if (price >= INVOICE_TOTAL_LIMIT) {
       const item = {
         desc,
@@ -78,10 +79,38 @@ const createInvoices = (products) => {
       quantity = Math.floor(INVOICE_TOTAL_LIMIT
                 / ((price - discount) + ((price - discount) * vat)));
 
+      // if taxed price of single product is bigger than INVOICE_TOTAL_LIMIT
+      // create invoice for every item
+      if (quantity === 0) {
+        discountedPrice = product.price - product.discount;
+        taxedPrice = discountedPrice + discountedPrice * product.vat;
+
+        for (let i = 0; i < allQuantity; i++) {
+          calculatedInvoices.push({
+            items: [{
+              desc,
+              quantity: 1,
+              price,
+              discount,
+              vat: `${vat * 100}%`,
+              total: `${(discountedPrice).toFixed(2)} + ${(discountedPrice * vat).toFixed(2)} = ${taxedPrice.toFixed(2)}`,
+            }],
+            subtotal: discountedPrice,
+            totalVat: discountedPrice * vat,
+            total: taxedPrice,
+          });
+        }
+
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
       // don't forget skipped products
-      savedForNextInvoice.push({
-        desc, price, vat, quantity: allQuantity - quantity, discount,
-      });
+      if (allQuantity - quantity !== 0) {
+        savedForNextInvoice.push({
+          desc, price, vat, quantity: allQuantity - quantity, discount,
+        });
+      }
 
       discountedPrice = (price - discount) * quantity;
       taxedPrice = discountedPrice + discountedPrice * vat;
@@ -123,7 +152,7 @@ const createInvoices = (products) => {
       total: `${discountedPrice.toFixed(2)} + ${(discountedPrice * vat).toFixed(2)} = ${taxedPrice.toFixed(2)}`,
     };
 
-    if (total + taxedPrice > INVOICE_TOTAL_LIMIT) {
+    if (total + taxedPrice > INVOICE_TOTAL_LIMIT && quantity) {
       // in case if invoice will exceed INVOICE_TOTAL_LIMIT,
       // save product for next invoice and skip cycle step
       savedForNextInvoice.push(product);
